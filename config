@@ -12,6 +12,21 @@
 set $mod Mod4
 set $alt Mod1
 
+# Fancy names for workspaces
+set $w01  1
+set $w02  2:www
+set $w03  3:kate
+set $w04  4:kile
+set $w05  5
+set $w06  6
+set $w07  7
+set $w08  8
+set $w09  9:im
+set $w10 10:mail
+
+
+
+
 #Thinkpad keys
 #   FN        XF86WakeUp
 #   FN F2     XF86ScreenSaver
@@ -97,28 +112,28 @@ bindsym $mod+a focus parent
 #bindcode $mod+d focus child
 
 # switch to workspace
-bindsym $mod+1 workspace 1
-bindsym $mod+2 workspace 2
-bindsym $mod+3 workspace 3
-bindsym $mod+4 workspace 4
-bindsym $mod+5 workspace 5
-bindsym $mod+6 workspace 6
-bindsym $mod+7 workspace 7
-bindsym $mod+8 workspace 8
-bindsym $mod+9 workspace 9
-bindsym $mod+0 workspace 10
+bindsym $mod+1 workspace $w01
+bindsym $mod+2 workspace $w02
+bindsym $mod+3 workspace $w03
+bindsym $mod+4 workspace $w04
+bindsym $mod+5 workspace $w05
+bindsym $mod+6 workspace $w06
+bindsym $mod+7 workspace $w07
+bindsym $mod+8 workspace $w08
+bindsym $mod+9 workspace $w09
+bindsym $mod+0 workspace $w10
 
 # move focused container to workspace
-bindsym $mod+Shift+exclam move workspace 1
-bindsym $mod+Shift+quotedbl move workspace 2
-bindsym $mod+Shift+section move workspace 3
-bindsym $mod+Shift+dollar move workspace 4
-bindsym $mod+Shift+percent move workspace 5
-bindsym $mod+Shift+ampersand move workspace 6
-bindsym $mod+Shift+slash move workspace 7
-bindsym $mod+Shift+parenleft move workspace 8
-bindsym $mod+Shift+parenright move workspace 9
-bindsym $mod+Shift+equal move workspace 10
+bindsym $mod+Shift+exclam     move workspace $w01
+bindsym $mod+Shift+quotedbl   move workspace $w02
+bindsym $mod+Shift+section    move workspace $w03
+bindsym $mod+Shift+dollar     move workspace $w04
+bindsym $mod+Shift+percent    move workspace $w05
+bindsym $mod+Shift+ampersand  move workspace $w06
+bindsym $mod+Shift+slash      move workspace $w07
+bindsym $mod+Shift+parenleft  move workspace $w08
+bindsym $mod+Shift+parenright move workspace $w09
+bindsym $mod+Shift+equal      move workspace $w10
 
 #-out 2014-10-07
 # orginal stettings 
@@ -175,44 +190,59 @@ bar {
       status_command i3status
     }
 
+
+
+bar {
+      position top
+      status_command ~/.i3/bartop
+    }
+
 # wlanstuff 2014-10-07
   exec --no-startup-id nm-applet
 
 # audio 2014-10-07
 # help from https://faq.i3wm.org/question/125/how-to-change-the-systems-volume/
+# https://faq.i3wm.org/question/3747/enabling-multimedia-keys/
   bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume 0 -- +10%
   bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume 0 -- -10%
   bindsym XF86AudioMute        exec --no-startup-id pactl set-sink-mute   0 toggle
 
 
 # bonus shortcuts
-  bindsym $alt+F4     kill                      # kill focused window 
   bindsym $mod+Return exec dmenu_run            # start dmenu (a program launcher)
-  bindsym $alt+F2     exec dmenu_run            # start dmenu (a program launcher)
   bindsym $mod+t      exec i3-sensible-terminal # start a terminal
 
+# linux desktop shortcuts
+  bindsym $alt+F4     kill                      # kill focused window
+  bindsym $alt+F2     exec dmenu_run            # start dmenu (a program launcher)
+  
 #Temp
-  bindsym $mod+$alt+F1 reload                  # reload the configuration file
-  bindsym $mod+$alt+F2 exit
+  bindsym $mod+$alt+F5 reload                  # reload the configuration file
+  bindsym $mod+$alt+F2 exit                    # log out 
   
 
 # Programme auf Workspaces zwingen
-assign [class="(?i)thunderbird"] 10
-assign [class="(?i)pidgin"]       9
-assign [class="(?i)skype"]        9
-assign [class="(?i)firefox"]      2
+  assign [class="(?i)firefox"]      $w02
+  assign [class="(?i)kate"]         $w03
+  assign [class="(?i)kile"]         $w04
+  assign [class="(?i)pidgin"]       $w09
+  assign [class="(?i)skype"]        $w09
+  assign [class="(?i)thunderbird"]  $w10
   
+
 # autostart
-exec --no-startup-id i3-msg 'workspace 2;  exec firefox;     workspace 1'
-exec --no-startup-id i3-msg 'workspace 9;  exec pidgin;      workspace 1'
-exec --no-startup-id i3-msg 'workspace 9;  exec skype;       workspace 1'
-exec --no-startup-id i3-msg 'workspace 10; exec thunderbird; workspace 1'
+  exec --no-startup-id i3-msg 'workspace $w02;  exec firefox;     workspace $w01'
+  exec --no-startup-id i3-msg 'workspace $w03;  exec kate;        workspace $w01'
+  exec --no-startup-id i3-msg 'workspace $w04;  exec kile;        workspace $w01'
+  exec --no-startup-id i3-msg 'workspace $w09;  exec pidgin;      workspace $w01'
+  exec --no-startup-id i3-msg 'workspace $w09;  exec skype;       workspace $w01'
+  exec --no-startup-id i3-msg 'workspace $w10;  exec thunderbird; workspace $w01'
 
 
 
 ###############################TO DO
 
 # Thinkpad shortcuts
-#   bindsym XF86ScreenSaver
-#   bindsym XF86Sleep
-  
+#   bindsym XF86ScreenSaver             # lock screen
+#   bindsym XF86Sleep                   # standby
+#   bindsym XF86Suspend                 # hybernate
