@@ -1,4 +1,9 @@
- 
+      general {
+        output_format = "dzen2"
+        colors = true
+        interval = 5
+}
+
 
 volume master {
         format = "♪: %volume"
