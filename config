@@ -13,60 +13,51 @@ set $mod Mod4
 set $alt Mod1
 
 # Fancy names for workspaces
-set $w01  1
-set $w02  2:www
-set $w03  3:kate
-set $w04  4:kile
-set $w05  5
-set $w06  6
-set $w07  7
-set $w08  8
-set $w09  9:im
-set $w10 10:mail
-
-
-
+set $w01 1
+set $w02 2:www
+set $w03 3:kate
+set $w04 4:kile
+set $w05 5
+set $w06 6
+set $w07 7
+set $w08 8
+set $w09 9:im
+set $w10 10:mail	
 
 #Thinkpad keys
-#   FN        XF86WakeUp
-#   FN F2     XF86ScreenSaver
-#   FN F3     XF86Battery
-#   FN F4     XF86Sleep
-#   FN F5     XF86WLAN
-#   FN F7     XF86Display
-#   FN F8     XF86TouchpadToggle
-#   FN F9
-#   FN F12    XF86Suspend
-#   Mute      XF86AudioMute
-#   Volume +  XF86AudioRaiseVolume
-#   Volume -  XF86AudioLowerVolume
+# FN XF86WakeUp
+# FN F2 XF86ScreenSaver
+# FN F3 XF86Battery
+# FN F4 XF86Sleep
+# FN F5 XF86WLAN
+# FN F7 XF86Display
+# FN F8 XF86TouchpadToggle
+# FN F9
+# FN F12 XF86Suspend
+# Mute XF86AudioMute
+# Volume + XF86AudioRaiseVolume
+# Volume - XF86AudioLowerVolume
 
-# font for window titles. ISO 10646 = Unicode
+# Font for window titles. Will also be used by the bar unless a different font
+# is used in the bar {} block below. ISO 10646 = Unicode
 font -misc-fixed-medium-r-normal--13-120-75-75-C-70-iso10646-1
+# The font above is very space-efficient, that is, it looks good, sharp and
+# clear in small sizes. However, if you need a lot of unicode glyphs or
+# right-to-left text rendering, you should instead use pango for rendering and
+# chose a FreeType font, such as:
+# font pango:DejaVu Sans Mono 10
 
 # Use Mouse+$mod to drag floating windows to their wanted position
 floating_modifier $mod
 
-#-out 2014-10-07
-# # start a terminal 
-# bindsym $mod+Return exec i3-sensible-terminal
 
-#-out 2014-10-07
-# # kill focused window 
-# bindsym $mod+Shift+Q kill
-
-
-#-out 2014-10-07
-# # start dmenu (a program launcher)
-# bindsym $mod+d exec dmenu_run
-
-# change focus
+# alternatively, you can use the cursor keys:
 bindsym $mod+Left focus left
 bindsym $mod+Down focus down
 bindsym $mod+Up focus up
 bindsym $mod+Right focus right
 
-# move focused window
+# alternatively, you can use the cursor keys:
 bindsym $mod+Shift+Left move left
 bindsym $mod+Shift+Down move down
 bindsym $mod+Shift+Up move up
@@ -81,10 +72,10 @@ bindsym $mod+v split v
 # enter fullscreen mode for the focused container
 bindsym $mod+f fullscreen
 
-# change container layout (stacked, tabbed, default)
+# change container layout (stacked, tabbed, toggle split)
 bindsym $mod+s layout stacking
 bindsym $mod+w layout tabbed
-bindsym $mod+e layout default
+bindsym $mod+e layout toggle split
 
 # toggle tiling / floating
 bindsym $mod+Shift+space floating toggle
@@ -95,8 +86,8 @@ bindsym $mod+space focus mode_toggle
 # focus the parent container
 bindsym $mod+a focus parent
 
-# focus the child container #-out by default
-#bindcode $mod+d focus child
+# focus the child container
+#bindsym $mod+d focus child
 
 # switch to workspace
 bindsym $mod+1 workspace $w01
@@ -122,114 +113,65 @@ bindsym $mod+Shift+parenleft  move workspace $w08
 bindsym $mod+Shift+parenright move workspace $w09
 bindsym $mod+Shift+equal      move workspace $w10
 
-#-out 2014-10-07
-# orginal stettings 
 # # reload the configuration file
-# bindsym $mod+Shift+C reload
+# bindsym $mod+Shift+c reload
 # # restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
-# bindsym $mod+Shift+R restart
-# # exit i3 (logs you out of your X session)
-# bindsym $mod+Shift+E exit
+# bindsym $mod+Shift+r restart
+# exit i3 (logs you out of your X session)
+bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -b 'Yes, exit i3' 'i3-msg exit'"
 
 # resize window (you can also use the mouse for that)
 mode "resize" {
-    # These bindings trigger as soon as you enter the resize mode
+        # These bindings trigger as soon as you enter the resize mode
 
-    # They resize the border in the direction you pressed, e.g.
-    # when pressing left, the window is resized so that it has
-    # more space on its left
+        # Pressing left will shrink the window’s width.
+        # Pressing right will grow the window’s width.
+        # Pressing up will shrink the window’s height.
+        # Pressing down will grow the window’s height.
+        bindsym j resize shrink width 10 px or 10 ppt
+        bindsym k resize grow height 10 px or 10 ppt
+        bindsym l resize shrink height 10 px or 10 ppt
+        bindsym odiaeresis resize grow width 10 px or 10 ppt
 
-#     bindsym j resize shrink         left 10 px or 10 ppt
-#     bindsym Shift+J resize grow     left 10 px or 10 ppt
-# 
-#     bindsym k resize shrink         down 10 px or 10 ppt
-#     bindsym Shift+K resize grow     down 10 px or 10 ppt
-# 
-#     bindsym l resize shrink         up 10 px or 10 ppt
-#     bindsym Shift+L resize grow     up 10 px or 10 ppt
-# 
-#     bindsym odiaeresis resize shrink        right 10 px or 10 ppt
-#     bindsym Shift+Odiaeresis resize grow    right 10 px or 10 ppt
+        # same bindings, but for the arrow keys
+        bindsym Left resize shrink width 10 px or 10 ppt
+        bindsym Down resize grow height 10 px or 10 ppt
+        bindsym Up resize shrink height 10 px or 10 ppt
+        bindsym Right resize grow width 10 px or 10 ppt
 
-    # same bindings, but for the arrow keys
-    bindsym Left resize shrink         left 10 px or 10 ppt
-    bindsym Shift+Left resize grow     left 10 px or 10 ppt
-
-    bindsym Down resize shrink         down 10 px or 10 ppt
-    bindsym Shift+Down resize grow     down 10 px or 10 ppt
-
-    bindsym Up resize shrink           up 10 px or 10 ppt
-    bindsym Shift+Up resize grow       up 10 px or 10 ppt
-
-    bindsym Right resize shrink        right 10 px or 10 ppt
-    bindsym Shift+Right resize grow    right 10 px or 10 ppt
-
-    #back to normal: Enter or Escape
-    bindsym Return mode "default"
-    bindsym Escape mode "default"
-  }
+        # back to normal: Enter or Escape
+        bindsym Return mode "default"
+        bindsym Escape mode "default"
+}
 
 bindsym $mod+r mode "resize"
 
 # Start i3bar to display a workspace bar (plus the system information i3status
 # finds out, if available)
-# bar {
-#       status_command i3status
-#     }
-
-
-
 bar {
-     status_command i3status -c /home/wu/.i3/bartop
-    }
+        status_command i3status
+}
 
 # wlanstuff 2014-10-07
-  exec --no-startup-id nm-applet
-
+exec --no-startup-id nm-applet
 # audio 2014-10-07
 # help from https://faq.i3wm.org/question/125/how-to-change-the-systems-volume/
 # https://faq.i3wm.org/question/3747/enabling-multimedia-keys/
-  bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume 0 -- +10%
-  bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume 0 -- -10%
-  bindsym XF86AudioMute        exec --no-startup-id pactl set-sink-mute   0 toggle
-
+bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume 0 -- +5%
+bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume 0 -- -5%
+bindsym XF86AudioMute        exec --no-startup-id pactl set-sink-mute   0 toggle
 
 # bonus shortcuts
   bindsym $mod+Return exec dmenu_run            # start dmenu (a program launcher)
   bindsym $mod+t      exec i3-sensible-terminal # start a terminal
+#   bindsym $mod+v                                   #toggel floting
 
 # linux desktop shortcuts
-  bindsym $alt+F4     kill                      # kill focused window
-  bindsym $alt+F2     exec dmenu_run            # start dmenu (a program launcher)
+  bindsym $mod+Shift+q kill
+  bindsym $alt+F4      kill                      # kill focused window
+  bindsym $alt+F2      exec dmenu_run            # start dmenu (a program launcher)
   
 #Temp
   bindsym $mod+$alt+F5 reload                  # reload the configuration file
   bindsym $mod+$alt+F2 exit                    # log out
   bindsym $mod+$alt+F6 restart
-  
-
-# Programme auf Workspaces zwingen
-  assign [class="(?i)firefox"]      $w02
-  assign [class="(?i)kate"]         $w03
-  assign [class="(?i)kile"]         $w04
-  assign [class="(?i)pidgin"]       $w09
-  assign [class="(?i)skype"]        $w09
-  assign [class="(?i)thunderbird"]  $w10
-  
-
-# autostart
-  exec --no-startup-id i3-msg 'workspace $w02;  exec firefox;     workspace $w01'
-  exec --no-startup-id i3-msg 'workspace $w03;  exec kate;        workspace $w01'
-  exec --no-startup-id i3-msg 'workspace $w04;  exec kile;        workspace $w01'
-  exec --no-startup-id i3-msg 'workspace $w09;  exec pidgin;      workspace $w01'
-  exec --no-startup-id i3-msg 'workspace $w09;  exec skype;       workspace $w01'
-  exec --no-startup-id i3-msg 'workspace $w10;  exec thunderbird; workspace $w01'
-
-
-
-###############################TO DO
-
-# Thinkpad shortcuts
-#   bindsym XF86ScreenSaver             # lock screen
-#   bindsym XF86Sleep                   # standby
-#   bindsym XF86Suspend                 # hybernate
