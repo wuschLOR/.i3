@@ -170,7 +170,7 @@ bindsym XF86AudioMute        exec --no-startup-id pactl set-sink-mute   0 toggle
   bindsym $mod+$alt+F5 reload 
   bindsym $mod+$alt+F6 restart
   # log out
-  bindsym $mod+$alt+F12 exec "i3-nagbar -t warning -m 'Do you really want to exit i3?' -b 'Yes, exit i3' 'i3-msg exit'"     
+  bindsym $mod+$alt+F11 exec "i3-nagbar -t warning -m 'Do you really want to exit i3?' -b 'Yes, exit i3' 'i3-msg exit'"     
   bindsym $mod+$alt+F2  exec i3lock
 
   bindsym $mod+Shift+c reload
