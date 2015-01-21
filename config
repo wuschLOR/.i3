@@ -18,7 +18,7 @@ set $w02 2:www
 set $w03 3:kate
 set $w04 4:kile
 set $w05 5:zot
-set $w06 6
+set $w06 6:R
 set $w07 7
 set $w08 8
 set $w09 9:im
@@ -177,11 +177,12 @@ bindsym XF86AudioMute        exec --no-startup-id pactl set-sink-mute   0 toggle
   bindsym $mod+Shift+r restart
   
 # Programme auf Workspaces zwingen
-  assign [class="(?i)firefox"]      $w02
-  assign [class="(?i)kate"]         $w03
-  assign [class="(?i)kile"]         $w04
-  assign [class="(?i)zotero"]       $w05
-  assign [class="(?i)pidgin"]       $w09
+  assign [class="(?i)firefox"]           $w02
+  assign [class="(?i)kate"]              $w03
+  assign [class="(?i)kile"]              $w04
+  assign [class="(?i)zotero"]            $w05
+  assign [class="(?i)rstudio"]           $w06
+  assign [class="(?i)pidgin"]            $w09
   assign [class="(?i)skype"]             $w09
   assign [class="(?i)thunderbird"]       $w10
   assign [class="(?i)backintime*"]       $w11
