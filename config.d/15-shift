@@ -1,0 +1,24 @@
+# switch to workspace
+bindsym $mod+1 workspace $w01
+bindsym $mod+2 workspace $w02
+bindsym $mod+3 workspace $w03
+bindsym $mod+4 workspace $w04
+bindsym $mod+5 workspace $w05
+bindsym $mod+6 workspace $w06
+bindsym $mod+7 workspace $w07
+bindsym $mod+8 workspace $w08
+bindsym $mod+9 workspace $w09
+bindsym $mod+0 workspace $w10
+bindsym $mod+p workspace $w11
+
+# move focused container to workspace
+bindsym $mod+Shift+exclam     move workspace $w01
+bindsym $mod+Shift+quotedbl   move workspace $w02
+bindsym $mod+Shift+section    move workspace $w03
+bindsym $mod+Shift+dollar     move workspace $w04
+bindsym $mod+Shift+percent    move workspace $w05
+bindsym $mod+Shift+ampersand  move workspace $w06
+bindsym $mod+Shift+slash      move workspace $w07
+bindsym $mod+Shift+parenleft  move workspace $w08
+bindsym $mod+Shift+parenright move workspace $w09
+bindsym $mod+Shift+equal      move workspace $w10 

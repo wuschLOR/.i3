@@ -1,0 +1,14 @@
+## Fancy names for workspaces ##################################################
+
+set $w01 1
+set $w02 2:www
+set $w03 3:kate
+set $w04 4:kile
+set $w05 5:zot
+set $w06 6:R
+set $w07 7
+set $w08 8
+set $w09 9:im
+set $w10 10:mail
+set $w11 11
+

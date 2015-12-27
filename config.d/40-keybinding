@@ -1,0 +1,59 @@
+## keybindings #################################################################
+
+#Thinkpad keys
+# FN XF86WakeUp
+# FN F2 XF86ScreenSaver
+# FN F3 XF86Battery
+# FN F4 XF86Sleep
+# FN F5 XF86WLAN
+# FN F7 XF86Display
+# FN F8 XF86TouchpadToggle
+# FN F9
+# FN F12 XF86Suspend
+# Mute XF86AudioMute
+# Volume + XF86AudioRaiseVolume
+# Volume - XF86AudioLowerVolume
+
+# audio 2014-10-07
+# https://faq.i3wm.org/question/125/how-to-change-the-systems-volume/
+# https://faq.i3wm.org/question/3747/enabling-multimedia-keys/
+  bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume 0 -- +5%
+  bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume 0 -- -5%
+  bindsym XF86AudioMute        exec --no-startup-id pactl set-sink-mute   0 toggle
+
+# bonus shortcuts
+  # start dmenu (a program launcher)
+  bindsym $mod+Return exec dmenu_run            
+  # start a terminal
+  bindsym $mod+t      exec i3-sensible-terminal
+
+# linux desktop shortcuts
+  bindsym $mod+Shift+q kill
+  # kill focused window
+  bindsym $alt+F4      kill                      
+  # start dmenu (a program launcher)
+  bindsym $alt+F2      exec dmenu_run 
+  bindsym $mod+F2      exec dmenu_run
+  bindsym Print        exec ksnapshot
+  
+#Temp
+  # reload the configuration file
+  bindsym $mod+$alt+F5 reload 
+  bindsym $mod+$alt+F6 restart
+  # log out
+  bindsym $mod+$alt+F11 exec "i3-nagbar -t warning -m 'Do you really want to exit i3?' -b 'Yes, exit i3' 'i3-msg exit'"     
+  bindsym $mod+l exec i3lock
+  #bindsym $mod+$alt+F2  exec i3lock
+  bindsym Control+Escape exec ksysguard
+
+  #bindsym $mod+Shift+c reload
+  #bindsym $mod+Shift+r restart 
+
+###############################TO DO ###########################################
+
+#https://faq.i3wm.org/question/4703/create-next-workspace-and-switch-to-it/
+
+# Thinkpad shortcuts
+#   bindsym XF86ScreenSaver             # lock screen
+#   bindsym XF86Sleep                   # standby
+#   bindsym XF86Suspend                 # hybernate

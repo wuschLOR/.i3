@@ -1,0 +1,44 @@
+## Programme auf Workspaces zwingen ############################################
+  assign [class="(?i)firefox"]           $w02
+  assign [class="(?i)kate"]              $w03
+  assign [class="(?i)kile"]              $w04
+  assign [class="(?i)zotero"]            $w05
+  assign [class="(?i)rstudio"]           $w06
+  assign [class="(?i)pidgin"]            $w09
+  assign [class="(?i)skype"]             $w09
+  assign [class="(?i)telegram"]          $w09
+  assign [class="(?i)thunderbird"]       $w10
+  assign [class="(?i)backintime*"]       $w10
+
+  
+## force floating ##############################################################
+  for_window [class="(?i)keepass*"] floating enable
+  for_window [class="(?i)keepass*"] floating enable 
+
+  
+## autostart ###################################################################
+  exec --no-startup-id owncloud
+  exec --no-startup-id firefox
+  exec --no-startup-id kate
+  exec --no-startup-id pidgin
+#  exec --no-startup-id skype
+  exec --no-startup-id thunderbird
+  exec --no-startup-id backintime*
+  exec --no-startup-id gtk-redshift
+  exec --no-startup-id telegram
+  
+# autostart with window
+  exec --no-startup-id i3-msg 'workspace $w01;  exec dolphin;     workspace $w01'
+#   exec --no-startup-id i3-msg 'workspace $w02;  exec firefox;     workspace $w01'
+#   exec --no-startup-id i3-msg 'workspace $w03;  exec kate;        workspace $w01'
+#   exec --no-startup-id i3-msg 'workspace $w04;  exec kile;        workspace $w01'
+#   exec --no-startup-id i3-msg 'workspace $w09;  exec pidgin;      workspace $w01'
+#   exec --no-startup-id i3-msg 'workspace $w09;  exec skype;       workspace $w01'
+#   exec --no-startup-id i3-msg 'workspace $w10;  exec thunderbird; workspace $w01'
+
+
+## wlanstuff 2014-10-07 ########################################################
+# https://faq.i3wm.org/question/2/how-can-i-use-networkmanager-with-i3/
+   exec --no-startup-id nm-applet
+#  exec --no-startup-id plasma-nm
+#  exec --no-startup-id kde-nm-connection-editor 
