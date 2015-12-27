@@ -9,10 +9,18 @@
 #
 # Please see http://i3wm.org/docs/userguide.html for a complete reference!
 
+
+## general options #############################################################
+# https://i3wm.org/docs/userguide.html#_automatic_back_and_forth_when_switching_to_the_current_workspace
+workspace_auto_back_and_forth yes
+
+
+
+## mods ########################################################################
 set $mod Mod4
 set $alt Mod1
 
-# Fancy names for workspaces
+## Fancy names for workspaces ##################################################
 set $w01 1
 set $w02 2:www
 set $w03 3:kate
@@ -39,14 +47,6 @@ set $w11 11
 # Volume + XF86AudioRaiseVolume
 # Volume - XF86AudioLowerVolume
 
-# Font for window titles. Will also be used by the bar unless a different font
-# is used in the bar {} block below. ISO 10646 = Unicode
-font -misc-fixed-medium-r-normal--13-120-75-75-C-70-iso10646-1
-# The font above is very space-efficient, that is, it looks good, sharp and
-# clear in small sizes. However, if you need a lot of unicode glyphs or
-# right-to-left text rendering, you should instead use pango for rendering and
-# chose a FreeType font, such as:
-# font pango:DejaVu Sans Mono 10
 
 # Use Mouse+$mod to drag floating windows to their wanted position
 floating_modifier $mod
@@ -146,9 +146,9 @@ bindsym $mod+r mode "resize"
 # audio 2014-10-07
 # https://faq.i3wm.org/question/125/how-to-change-the-systems-volume/
 # https://faq.i3wm.org/question/3747/enabling-multimedia-keys/
-bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume 0 -- +5%
-bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume 0 -- -5%
-bindsym XF86AudioMute        exec --no-startup-id pactl set-sink-mute   0 toggle
+  bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume 0 -- +5%
+  bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume 0 -- -5%
+  bindsym XF86AudioMute        exec --no-startup-id pactl set-sink-mute   0 toggle
 
 # bonus shortcuts
   # start dmenu (a program launcher)
@@ -171,13 +171,14 @@ bindsym XF86AudioMute        exec --no-startup-id pactl set-sink-mute   0 toggle
   bindsym $mod+$alt+F6 restart
   # log out
   bindsym $mod+$alt+F11 exec "i3-nagbar -t warning -m 'Do you really want to exit i3?' -b 'Yes, exit i3' 'i3-msg exit'"     
-  bindsym $mod+$alt+F2  exec i3lock
+  bindsym $mod+l exec i3lock
+  #bindsym $mod+$alt+F2  exec i3lock
   bindsym Control+Escape exec ksysguard
 
-  bindsym $mod+Shift+c reload
-  bindsym $mod+Shift+r restart
+  #bindsym $mod+Shift+c reload
+  #bindsym $mod+Shift+r restart
   
-# Programme auf Workspaces zwingen
+## Programme auf Workspaces zwingen ############################################
   assign [class="(?i)firefox"]           $w02
   assign [class="(?i)kate"]              $w03
   assign [class="(?i)kile"]              $w04
@@ -185,22 +186,23 @@ bindsym XF86AudioMute        exec --no-startup-id pactl set-sink-mute   0 toggle
   assign [class="(?i)rstudio"]           $w06
   assign [class="(?i)pidgin"]            $w09
   assign [class="(?i)skype"]             $w09
+  assign [class="(?i)telegram"]          $w09
   assign [class="(?i)thunderbird"]       $w10
-  assign [class="(?i)backintime*"]       $w11
+  assign [class="(?i)backintime*"]       $w10
 
   
-# force floating
-for_window [class="(?i)keepass*"] floating enable
-for_window [class="(?i)keepass*"] floating enable
+## force floating ##############################################################
+  for_window [class="(?i)keepass*"] floating enable
+  for_window [class="(?i)keepass*"] floating enable
   
   
-# wlanstuff 2014-10-07
+## wlanstuff 2014-10-07 ########################################################
 # https://faq.i3wm.org/question/2/how-can-i-use-networkmanager-with-i3/
    exec --no-startup-id nm-applet
 #  exec --no-startup-id plasma-nm
 #  exec --no-startup-id kde-nm-connection-editor 
 
-# autostart
+## autostart ###################################################################
   exec --no-startup-id owncloud
   exec --no-startup-id firefox
   exec --no-startup-id kate
@@ -208,7 +210,8 @@ for_window [class="(?i)keepass*"] floating enable
 #  exec --no-startup-id skype
   exec --no-startup-id thunderbird
   exec --no-startup-id backintime*
-  
+  exec --no-startup-id gtk-redshift
+  exec --no-startup-id telegram
   
 # autostart with window
   exec --no-startup-id i3-msg 'workspace $w01;  exec dolphin;     workspace $w01'
@@ -220,7 +223,9 @@ for_window [class="(?i)keepass*"] floating enable
 #   exec --no-startup-id i3-msg 'workspace $w10;  exec thunderbird; workspace $w01'
 
 
-###############################TO DO
+###############################TO DO ###########################################
+
+#https://faq.i3wm.org/question/4703/create-next-workspace-and-switch-to-it/
 
 # Thinkpad shortcuts
 #   bindsym XF86ScreenSaver             # lock screen
