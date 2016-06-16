@@ -5,8 +5,9 @@ set $alt Mod1
 ## general options #############################################################
 # https://i3wm.org/docs/userguide.html#_automatic_back_and_forth_when_switching_to_the_current_workspace
 workspace_auto_back_and_forth yes 
-## Fancy names for workspaces ##################################################
+## Workspace def + config  #####################################################
 
+# Fancy names for workspaces
 set $w01 1
 set $w02 2:www
 set $w03 3:kate
@@ -43,7 +44,19 @@ bindsym $mod+Shift+slash      move workspace $w07
 bindsym $mod+Shift+parenleft  move workspace $w08
 bindsym $mod+Shift+parenright move workspace $w09
 bindsym $mod+Shift+equal      move workspace $w10 
-## container management ########################################################
+
+# move focused worspace to display
+
+bindsym $mod+$alt+Left  move workspace to output left
+bindsym $mod+$alt+Down  move workspace to output down
+bindsym $mod+$alt+Up    move workspace to output up
+bindsym $mod+$alt+Right move workspace to output right
+
+## /Workspace def + config  ###################################################### Shift trargets ##############################################################
+
+
+
+## / Shift trargets ############################################################## container management ########################################################
 
 # Use Mouse+$mod to drag floating windows to their wanted position
 floating_modifier $mod
@@ -105,7 +118,10 @@ mode "resize" {
         bindsym Escape mode "default"
 }
 
-bindsym $mod+r mode "resize"## Programme auf Workspaces zwingen ############################################
+bindsym $mod+r mode "resize"
+
+## /container management ########################################################
+## Programme auf Workspaces zwingen ############################################
   assign [class="(?i)firefox"]           $w02
   assign [class="(?i)kate"]              $w03
   assign [class="(?i)kile"]              $w04
@@ -133,6 +149,7 @@ bindsym $mod+r mode "resize"## Programme auf Workspaces zwingen ################
   exec --no-startup-id backintime*
   exec --no-startup-id gtk-redshift
   exec --no-startup-id telegram
+  exec --no-startup-id blueman-applet 
   
 # autostart with window
   exec --no-startup-id i3-msg 'workspace $w01;  exec dolphin;     workspace $w01'
@@ -158,51 +175,59 @@ bindsym $mod+r mode "resize"## Programme auf Workspaces zwingen ################
   bindsym $mod+t      exec i3-sensible-terminal
 
 # linux desktop shortcuts
-  bindsym $mod+Shift+q kill
+
   # kill focused window
   bindsym $alt+F4      kill                      
+
   # start dmenu (a program launcher)
   bindsym $alt+F2      exec dmenu_run 
   bindsym $mod+F2      exec dmenu_run
+  
+  # screenshot
   bindsym Print        exec ksnapshot
   
-#Temp
+# i3system
   # reload the configuration file
   bindsym $mod+$alt+F5 reload 
+  
+  # restart i3 alltogehter
   bindsym $mod+$alt+F6 restart
+  
   # log out
-  bindsym $mod+$alt+F11 exec "i3-nagbar -t warning -m 'Do you really want to exit i3?' -b 'Yes, exit i3' 'i3-msg exit'"     
+  bindsym $mod+$alt+F11 exec "i3-nagbar -t warning -m 'Do you really want to exit i3?' -b 'Yes, exit i3' 'i3-msg exit'" 
+  
+  # lock screen
   bindsym $mod+l exec i3lock
-  #bindsym $mod+$alt+F2  exec i3lock
+
+  # taskmanager
   bindsym Control+Escape exec ksysguard
 
-  #bindsym $mod+Shift+c reload
-  #bindsym $mod+Shift+r restart 
-
 #Thinkpad keys
-# FN XF86WakeUp
-# FN F2 XF86ScreenSaver
-# FN F3 XF86Battery
-# FN F4 XF86Sleep
-# FN F5 XF86WLAN
-# FN F7 XF86Display
-# FN F8 XF86TouchpadToggle
-# FN F9
-# FN F12 XF86Suspend
-# Mute XF86AudioMute
-# Volume + XF86AudioRaiseVolume
-# Volume - XF86AudioLowerVolume
+    # FN XF86WakeUp
+    # FN F2 XF86ScreenSaver
+    # FN F3 XF86Battery
+    # FN F4 XF86Sleep
+    # FN F5 XF86WLAN
+    # FN F7 XF86Display
+    # FN F8 XF86TouchpadToggle
+    # FN F9
+    # FN F12 XF86Suspend
+    # Mute XF86AudioMute
+    # Volume + XF86AudioRaiseVolume
+    # Volume - XF86AudioLowerVolume
 
 # audio 2014-10-07
-# https://faq.i3wm.org/question/125/how-to-change-the-systems-volume/
-# https://faq.i3wm.org/question/3747/enabling-multimedia-keys/
+  # https://faq.i3wm.org/question/125/how-to-change-the-systems-volume/
+  # https://faq.i3wm.org/question/3747/enabling-multimedia-keys/
   bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume 0 -- +5%
   bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume 0 -- -5%
   bindsym XF86AudioMute        exec --no-startup-id pactl set-sink-mute   0 toggle
 
 # Sreen brightness controls
-bindsym XF86MonBrightnessUp exec xbacklight -inc 20 # increase screen brightness
-bindsym XF86MonBrightnessDown exec xbacklight -dec 20 # decrease screen brightness 
+  #bindsym XF86MonBrightnessUp   exec xbacklight -inc 20 # increase screen brightness
+  #bindsym XF86MonBrightnessDown exec xbacklight -dec 20 # decrease screen brightness 
+  bindsym XF86MonBrightnessUp   exec xbacklight -inc 10 -time 0 -steps 1
+  bindsym XF86MonBrightnessDown exec xbacklight -dec 10 -time 0 -steps 1
 
 ###############################TO DO ###########################################
 

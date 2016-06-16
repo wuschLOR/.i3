@@ -26,6 +26,7 @@
   exec --no-startup-id backintime*
   exec --no-startup-id gtk-redshift
   exec --no-startup-id telegram
+  exec --no-startup-id blueman-applet 
   
 # autostart with window
   exec --no-startup-id i3-msg 'workspace $w01;  exec dolphin;     workspace $w01'

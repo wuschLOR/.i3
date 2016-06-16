@@ -1,0 +1,35 @@
+#Thinkpad keys
+    # FN XF86WakeUp
+    # FN F2 XF86ScreenSaver
+    # FN F3 XF86Battery
+    # FN F4 XF86Sleep
+    # FN F5 XF86WLAN
+    # FN F7 XF86Display
+    # FN F8 XF86TouchpadToggle
+    # FN F9
+    # FN F12 XF86Suspend
+    # Mute XF86AudioMute
+    # Volume + XF86AudioRaiseVolume
+    # Volume - XF86AudioLowerVolume
+
+# audio 2014-10-07
+  # https://faq.i3wm.org/question/125/how-to-change-the-systems-volume/
+  # https://faq.i3wm.org/question/3747/enabling-multimedia-keys/
+  bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume 0 -- +5%
+  bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume 0 -- -5%
+  bindsym XF86AudioMute        exec --no-startup-id pactl set-sink-mute   0 toggle
+
+# Sreen brightness controls
+  #bindsym XF86MonBrightnessUp   exec xbacklight -inc 20 # increase screen brightness
+  #bindsym XF86MonBrightnessDown exec xbacklight -dec 20 # decrease screen brightness 
+  bindsym XF86MonBrightnessUp   exec xbacklight -inc 10 -time 0 -steps 1
+  bindsym XF86MonBrightnessDown exec xbacklight -dec 10 -time 0 -steps 1
+
+###############################TO DO ###########################################
+
+#https://faq.i3wm.org/question/4703/create-next-workspace-and-switch-to-it/
+
+# Thinkpad shortcuts
+#   bindsym XF86ScreenSaver             # lock screen
+#   bindsym XF86Sleep                   # standby
+#   bindsym XF86Suspend                 # hybernate

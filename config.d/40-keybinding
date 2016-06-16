@@ -7,24 +7,30 @@
   bindsym $mod+t      exec i3-sensible-terminal
 
 # linux desktop shortcuts
-  bindsym $mod+Shift+q kill
+
   # kill focused window
   bindsym $alt+F4      kill                      
+
   # start dmenu (a program launcher)
   bindsym $alt+F2      exec dmenu_run 
   bindsym $mod+F2      exec dmenu_run
+  
+  # screenshot
   bindsym Print        exec ksnapshot
   
-#Temp
+# i3system
   # reload the configuration file
   bindsym $mod+$alt+F5 reload 
+  
+  # restart i3 alltogehter
   bindsym $mod+$alt+F6 restart
+  
   # log out
-  bindsym $mod+$alt+F11 exec "i3-nagbar -t warning -m 'Do you really want to exit i3?' -b 'Yes, exit i3' 'i3-msg exit'"     
+  bindsym $mod+$alt+F11 exec "i3-nagbar -t warning -m 'Do you really want to exit i3?' -b 'Yes, exit i3' 'i3-msg exit'" 
+  
+  # lock screen
   bindsym $mod+l exec i3lock
-  #bindsym $mod+$alt+F2  exec i3lock
-  bindsym Control+Escape exec ksysguard
 
-  #bindsym $mod+Shift+c reload
-  #bindsym $mod+Shift+r restart 
+  # taskmanager
+  bindsym Control+Escape exec ksysguard
 
