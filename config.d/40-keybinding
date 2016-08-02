@@ -3,8 +3,10 @@
 # bonus shortcuts
   # start dmenu (a program launcher)
   bindsym $mod+Return exec dmenu_run            
+
   # start a terminal
-  bindsym $mod+t      exec i3-sensible-terminal
+  bindsym $mod+t      exec konsole
+  bindsym $mor+d      exec dolphin
 
 # linux desktop shortcuts
 
@@ -29,7 +31,7 @@
   bindsym $mod+$alt+F11 exec "i3-nagbar -t warning -m 'Do you really want to exit i3?' -b 'Yes, exit i3' 'i3-msg exit'" 
   
   # lock screen
-  bindsym $mod+l exec i3lock
+  bindsym $mod+l exec i3lock -c 2f4f4f --image ~/.i3/lockpic/*.png
 
   # taskmanager
   bindsym Control+Escape exec ksysguard
