@@ -6,7 +6,7 @@
 
   # start a terminal
   bindsym $mod+t      exec konsole
-  bindsym $mor+d      exec dolphin
+  bindsym $mod+d      exec dolphin
 
 # linux desktop shortcuts
 
