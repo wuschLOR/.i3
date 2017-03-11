@@ -18,14 +18,14 @@
 
   
 ## autostart ###################################################################
-  exec --no-startup-id owncloud
+  exec --no-startup-id nextcloud
   exec --no-startup-id firefox
   exec --no-startup-id kate
   exec --no-startup-id pidgin
   exec --no-startup-id thunderbird
   exec --no-startup-id gtk-redshift
   exec --no-startup-id telegram
-  exec --no-startup-id qtox
+#  exec --no-startup-id qtox
 
   
 # autostart with window
