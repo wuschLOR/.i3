@@ -22,8 +22,17 @@
 # Sreen brightness controls
   #bindsym XF86MonBrightnessUp   exec xbacklight -inc 20 # increase screen brightness
   #bindsym XF86MonBrightnessDown exec xbacklight -dec 20 # decrease screen brightness 
-  bindsym XF86MonBrightnessUp   exec xbacklight -inc 10 -time 0 -steps 1 ; exec notify-send plus
-  bindsym XF86MonBrightnessDown exec xbacklight -dec 10 -time 0 -steps 1 ; exec notify-send minus
+  #bindsym XF86MonBrightnessUp   exec xbacklight -inc 10 -time 0 -steps 1 ; exec notify-send plus
+  #bindsym XF86MonBrightnessDown exec xbacklight -dec 10 -time 0 -steps 1 ; exec notify-send minus
+  
+# Screen brightness controls with light and notification
+  # https://cialu.net/brightness-control-not-work-i3wm/
+  
+  # increase screen brightness with notification
+  bindsym XF86MonBrightnessUp exec "light -A 5; notify-send 'brightness up'" 
+  # decrease screen brightness with notification
+  bindsym XF86MonBrightnessDown exec "light -U 5; notify-send 'brightness down'" 
+
 
 ###############################TO DO ###########################################
 
