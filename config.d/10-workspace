@@ -1,4 +1,4 @@
-## Workspace def + config  #####################################################
+## 10-workspace ################################################################
 
 # Fancy names for workspaces
 set $w01 1
@@ -45,4 +45,4 @@ bindsym $mod+$alt+Down  move workspace to output down
 bindsym $mod+$alt+Up    move workspace to output up
 bindsym $mod+$alt+Right move workspace to output right
 
-## /Workspace def + config  ####################################################
+## 10-workspace ################################################################

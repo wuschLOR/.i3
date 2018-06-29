@@ -1,4 +1,4 @@
-## container management ########################################################
+## 20-container ################################################################
 
 # Use Mouse+$mod to drag floating windows to their wanted position
 floating_modifier $mod
@@ -62,4 +62,4 @@ mode "resize" {
 
 bindsym $mod+r mode "resize"
 
-## /container management ########################################################
+## 20-container ################################################################

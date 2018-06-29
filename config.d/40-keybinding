@@ -1,4 +1,4 @@
-## keybindings #################################################################
+## 40-keybinding ###############################################################
 
 # bonus shortcuts
   # start dmenu (a program launcher)
@@ -36,3 +36,4 @@
   # taskmanager
   bindsym Control+Escape exec ksysguard
 
+## 40-keybinding ###############################################################

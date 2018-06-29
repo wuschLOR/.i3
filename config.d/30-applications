@@ -1,4 +1,5 @@
-## Programme auf Workspaces zwingen ############################################
+## 30-applications #############################################################
+
   assign [class="(?i)firefox"]           $w02
   assign [class="(?i)kate"]              $w03
   assign [class="(?i)kile"]              $w04
@@ -43,3 +44,5 @@
    exec --no-startup-id nm-applet
 #  exec --no-startup-id plasma-nm
 #  exec --no-startup-id kde-nm-connection-editor 
+
+## 30-applications #############################################################
