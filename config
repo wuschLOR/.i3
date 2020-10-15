@@ -128,18 +128,29 @@ bindsym $mod+r mode "resize"
 ## 20-container ################################################################
 ## 30-applications #############################################################
 
+### $01
+### $02
   assign [class="(?i)firefox"]           $w02
+### $03
   assign [class="(?i)kate"]              $w03
+### $04
   assign [class="(?i)kile"]              $w04
+### $05
   assign [class="(?i)zotero"]            $w05
-  assign [class="(?i)spyder"]            $w05
+### $06
   assign [class="(?i)rstudio"]           $w06
-  assign [class="(?i)pidgin"]            $w09
-  assign [class="(?i)telegram"]          $w09
-  assign [class="(?i)qtox"]              $w09
+### $07
+### $08
+  assign [class="(?i)telegram*"]          $w08
+  assign [class="(?i)signal*"]    $w08
+### $09
+  assign [class="(?i)riot*"]             $w09
+  assign [class="(?i)element*"]          $w09
+### $10
   assign [class="(?i)thunderbird"]       $w10
   assign [class="(?i)backintime*"]       $w10
-
+### $11 
+  assign [class="(?i)keepassxc"]         $w11
   
 ## force floating ##############################################################
   for_window [class="(?i)keepass*"] floating enable
@@ -150,20 +161,19 @@ bindsym $mod+r mode "resize"
   exec --no-startup-id nextcloud
   exec --no-startup-id firefox
   exec --no-startup-id kate
-  exec --no-startup-id pidgin
   exec --no-startup-id thunderbird
   exec --no-startup-id gtk-redshift
-  exec --no-startup-id telegram
-#  exec --no-startup-id qtox
+  exec --no-startup-id riot-web
+  exec --no-startup-id signal-desktop
+  exec --no-startup-id telegram-desktop
+  exec --no-startup-id keepassxc
+  exec --no-startup-id element-web
 
   
 # autostart with window
   exec --no-startup-id i3-msg 'workspace $w01;  exec dolphin;     workspace $w01'
 #   exec --no-startup-id i3-msg 'workspace $w02;  exec firefox;     workspace $w01'
 #   exec --no-startup-id i3-msg 'workspace $w03;  exec kate;        workspace $w01'
-#   exec --no-startup-id i3-msg 'workspace $w04;  exec kile;        workspace $w01'
-#   exec --no-startup-id i3-msg 'workspace $w09;  exec pidgin;      workspace $w01'
-#   exec --no-startup-id i3-msg 'workspace $w09;  exec skype;       workspace $w01'
 #   exec --no-startup-id i3-msg 'workspace $w10;  exec thunderbird; workspace $w01'
 
 
@@ -237,8 +247,8 @@ bindsym $mod+r mode "resize"
   # bindsym XF86AudioMute        exec --no-startup-id pactl set-sink-mute   0 toggle
 
 # Sreen brightness controls
-  # bindsym XF86MonBrightnessUp exec xbacklight -inc 10  # increase screen brightness
-  # bindsym XF86MonBrightnessDown exec xbacklight -dec 10  # decrease screen brightness
+#  bindsym XF86MonBrightnessUp exec xbacklight -inc 10  # increase screen brightness
+#  bindsym XF86MonBrightnessDown exec xbacklight -dec 10  # decrease screen brightness
   
 # Screen brightness controls with light and notification
   # 
