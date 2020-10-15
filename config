@@ -242,9 +242,9 @@ bindsym $mod+r mode "resize"
 # audio 2014-10-07
   # https://faq.i3wm.org/question/125/how-to-change-the-systems-volume/
   # https://faq.i3wm.org/question/3747/enabling-multimedia-keys/
-  # bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume 0 +5%
-  # bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume 0 -5%
-  # bindsym XF86AudioMute        exec --no-startup-id pactl set-sink-mute   0 toggle
+  bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume 0 +5%
+  bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume 0 -5%
+  bindsym XF86AudioMute        exec --no-startup-id pactl set-sink-mute   0 toggle
 
 # Sreen brightness controls
 #  bindsym XF86MonBrightnessUp exec xbacklight -inc 10  # increase screen brightness
@@ -253,7 +253,7 @@ bindsym $mod+r mode "resize"
 # Screen brightness controls with light and notification
   # 
   # HEY FUTURE ME PLS read this source first:
-  # not reading this count 1
+  # not reading this count 2
   #
   # https://cialu.net/brightness-control-not-work-i3wm/
   # https://github.com/haikarainen/light
