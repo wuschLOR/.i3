@@ -1,17 +1,16 @@
 ## 10-workspace ################################################################
 
 # Fancy names for workspaces
-set $w01 1
+set $w01 1:dol
 set $w02 2:www
-set $w03 3:kate
-set $w04 4:kile
-set $w05 5:py
-set $w06 6:r
+set $w03 3:kat
+set $w04 4
+set $w05 5
+set $w06 6
 set $w07 7
-set $w08 8
-set $w09 9:im
+set $w08 8:tel
+set $w09 9:ele
 set $w10 10:mail
-set $w11 11
 
 # switch to workspace
 bindsym $mod+1 workspace $w01
@@ -24,19 +23,18 @@ bindsym $mod+7 workspace $w07
 bindsym $mod+8 workspace $w08
 bindsym $mod+9 workspace $w09
 bindsym $mod+0 workspace $w10
-bindsym $mod+p workspace $w11
 
 # move focused container to workspace
-bindsym $mod+Shift+exclam     move workspace $w01
-bindsym $mod+Shift+quotedbl   move workspace $w02
-bindsym $mod+Shift+section    move workspace $w03
-bindsym $mod+Shift+dollar     move workspace $w04
-bindsym $mod+Shift+percent    move workspace $w05
-bindsym $mod+Shift+ampersand  move workspace $w06
-bindsym $mod+Shift+slash      move workspace $w07
-bindsym $mod+Shift+parenleft  move workspace $w08
-bindsym $mod+Shift+parenright move workspace $w09
-bindsym $mod+Shift+equal      move workspace $w10 
+bindsym $mod+Shift+1 move workspace $w01
+bindsym $mod+Shift+2 move workspace $w02
+bindsym $mod+Shift+3 move workspace $w03
+bindsym $mod+Shift+4 move workspace $w04
+bindsym $mod+Shift+5 move workspace $w05
+bindsym $mod+Shift+6 move workspace $w06
+bindsym $mod+Shift+7 move workspace $w07
+bindsym $mod+Shift+8 move workspace $w08
+bindsym $mod+Shift+9 move workspace $w09
+bindsym $mod+Shift+0 move workspace $w10 
 
 # move focused worspace to display
 
